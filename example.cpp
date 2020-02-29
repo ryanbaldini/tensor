@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 	try {
-		//make a tensor of a certain size and fill value
+		//make a 4D tendor, fill with ones
 		vector<int> dim{3,2,5,8};
 		Tensor t1(dim, 1.0);
 		cout << t1[0][0][0][0] << "\n"; //should be 1
@@ -25,6 +25,10 @@ int main() {
 		cout << t2[0][1][3][6] << "\n"; //still 10
 		cout << t1[0][1][2][6] << "\n"; //still 10
 		cout << t2[0][1][2][6] << "\n"; //should be 3
+		
+		//"=" operator copies values over
+		t2[0][1][4] = t1[2][0][1]; 
+		cout << t2[0][1][4][6] << "\n"; //should be 1
 		
 		//some arithmetic
 		t1 = 1;
