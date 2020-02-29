@@ -36,6 +36,15 @@ int main() {
 		t2[0][0] += t1[2][1]*2;
 		cout << t2[0][0][0][0] << "\n"; //should be -12
 		cout << t2[0][1][0][0] << "\n"; //still -14
+		
+		dim = vector<int>{5,8};
+		Tensor t3(dim, 10.0);
+		t2[1][1] = t3*5;
+		cout << t2[1][1][0][0] << "\n"; //should be 50
+		
+		//copy subtensor
+		Tensor t4(t1[0][1][4]);
+		cout << t4[1] << "\n"; //should be 1
 	}
 	catch(const char* err) {
 		cout << "Error: " << err << "\n";
