@@ -22,9 +22,9 @@ public:
 	    return values[0];
 	}
 	
-	Tensor(): values(nullptr), ownsData(false), totalSize(0) {}
+	Tensor(): totalSize(0), values(nullptr), ownsData(false) {}
 	
-	Tensor(std::vector<int>& dim, double val = 0.0): dimensions(dim), ownsData(true) {
+	Tensor(const std::vector<int>& dim, double val = 0.0): dimensions(dim), ownsData(true) {
 		totalSize = 1;
 		for(int d : dimensions) {
 			if(d==0) {

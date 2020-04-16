@@ -4,9 +4,9 @@ using namespace std;
 
 int main() {
 	try {
-		//make a 4D tendor, fill with ones
-		vector<int> dim{3,2,5,8};
-		Tensor t1(dim, 1.0);
+		//make a 4D tensor, fill with ones
+		//dimensions are 3 x 2 x 5 x 8
+		Tensor t1({3,2,5,8}, 1.0);
 		cout << t1[0][0][0][0] << "\n"; //should be 1
 
 		//set value
@@ -41,8 +41,7 @@ int main() {
 		cout << t2[0][0][0][0] << "\n"; //should be -12
 		cout << t2[0][1][0][0] << "\n"; //still -14
 		
-		dim = vector<int>{5,8};
-		Tensor t3(dim, 10.0);
+		Tensor t3({5,8}, 10.0);
 		t2[1][1] = t3*5;
 		cout << t2[1][1][0][0] << "\n"; //should be 50
 		
